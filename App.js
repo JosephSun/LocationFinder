@@ -34,5 +34,21 @@ class App extends React.Component {
     }
   },
 
+  addToFavorites(address) {
+
+    let favorites = this.state.favorites;
+
+    favorites.push({
+      address: address,
+      timestamp: Date.now()
+    });
+
+    this.setState({
+      favorites: favorites
+    });
+
+    localStorage.favorites = JSON.stringify(favorites);
+  },
+
   
 }
