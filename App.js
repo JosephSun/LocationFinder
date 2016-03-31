@@ -109,7 +109,25 @@ class App extends React.Component {
     });
   },
 
-  render()
+  render() {
+    return (
+      <div>
+        <h1>Your Google Maps Locations </h1>
+
+        <Search onSearch={this.searchForAddress} />
+
+        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
+
+				<CurrentLocation address={this.state.currentAddress}
+					favorite={this.isAddressInFavorites(this.state.currentAddress)}
+					onFavoriteToggle={this.toggleFavorite} />
+
+				<LocationList locations={this.state.favorites} activeLocationAddress={this.state.currentAddress}
+					onClick={this.searchForAddress} />
+
+      </div>
+    )
+  }
 
 
 
