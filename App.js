@@ -74,5 +74,20 @@ class App extends React.Component {
     }
   },
 
-  
+  isAddressInFavorites(address) {
+    let favorites = this.state.favorites;
+
+    for (let i = 0; i < favorites.length; i++) {
+      if(favorites[i].address == address) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+
+
+
+
 }
