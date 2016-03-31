@@ -50,5 +50,29 @@ class App extends React.Component {
     localStorage.favorites = JSON.stringify(favorites);
   },
 
+  removeFromFavorites(address) {
+    let favorites = this.state.favorites;
+    let index = -1;
+
+    for(let i = 0; i < favorites.length; i++) {
+      if (favorites[i]. address == address) {
+        index = i;
+        break;
+      }
+    }
+
+    // If it was found, remove it from the favorites array
+
+    if(index !== -1) {
+      favorites.splice(index, 1);
+
+      this.setState({
+        favorites:favorites
+      });
+
+      localStorage.favorites = JSON.stringify(favorites);
+    }
+  },
+
   
 }
