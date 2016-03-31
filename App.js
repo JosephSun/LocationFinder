@@ -27,7 +27,12 @@ class App extends React.Component {
 
   toggleFavorite(address) {
     if(this.isAddressInFavorites(address)) {
-      
+      this.removeFromFavorites(address);
     }
-  }
+    else {
+      this.addToFavorites(address);
+    }
+  },
+
+  
 }
