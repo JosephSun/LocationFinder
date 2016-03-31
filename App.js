@@ -86,7 +86,30 @@ class App extends React.Component {
     return false;
   }
 
+  searchForAddress(address) {
+    let self = this;
 
+    // using GMaps geocode functionality, built on top of GmapsApi
+
+    GMaps.geocode({
+      address: address,
+      callback: function(results, status) {
+        if(status !== 'OK') return;
+
+        let lating = results[0].geometry.location;
+
+        self.setState({
+          currentAddress: results[0].formatted_address,
+          mapCoordinates: {
+            lat:latlng.lat(),
+            lng: latlng.lng()
+          }
+        });
+      }
+    });
+  },
+
+  render()
 
 
 
